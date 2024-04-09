@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "internal/pb";
+
+
+/*
+    Neste arquivo definiremos os dados que serão transacionados e as funcionalidades que estarão disponíveis
+    "message" é a palavra chave para definir uma estrutura de dados, enquando "service" define os serviços
+    disponíveis. 
+
+    protoc --go_out=. --go-grpc_out=. proto/encomenda.proto
+*/
+
+message User{
+    int32 cpf = 1;
+    string name = 2;
+}
+
+message Encomenda{
+    User user = 1;
+    int32 cod_produto = 2;
+}
+
+message EncomendaRastreio{
+    Encomenda encomenda = 1;
+    int64 codRastreio = 2;
+}
+
+service EncomendaService{
+    rpc SendEncomenda(Encomenda) returns (EncomendaRastreio){}
+}
