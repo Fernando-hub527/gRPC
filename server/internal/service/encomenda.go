@@ -7,8 +7,14 @@ import (
 	"github.com/Fernando-hub527/gRPC/internal/pb"
 )
 
+/*
+Aqui você começa a implementar suas funcionalidades de acordo com o que foi definido no
+arquivo .proto.
+
+UnimplementedEncomendaServiceServer serve
+*/
 type EncomendaService struct {
-	pb.UnimplementedEncomendaServiceServer // não sei para que serve
+	pb.UnimplementedEncomendaServiceServer
 }
 
 func NewEncomendaService() *EncomendaService {
