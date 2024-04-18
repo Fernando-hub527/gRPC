@@ -17,6 +17,10 @@ type EncomendaService struct {
 	pb.UnimplementedEncomendaServiceServer
 }
 
+/*
+Aqui estamos disponibilizando uma função para criar a estrutura EncomendaService, se você é novo em go e já trabalhou
+com linguagens orientadas a objeto, essa função é algo parecido com um constructor
+*/
 func NewEncomendaService() *EncomendaService {
 	return &EncomendaService{}
 }

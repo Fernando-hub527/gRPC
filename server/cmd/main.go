@@ -17,12 +17,12 @@ import (
 */
 
 func main() {
-	serviceEncomenda := service.NewEncomendaService()
+	serviceEncomenda := service.NewEncomendaService() // Criação do serviço definido pacote service
 
-	grpcServer := grpc.NewServer() // CRiação do servidor grpc
+	grpcServer := grpc.NewServer() // Criação do servidor grpc
 
 	pb.RegisterEncomendaServiceServer(grpcServer, serviceEncomenda) // Aqui você precisa vincular o servidor grpc e o serviço criado que você implementou
-	reflection.Register(grpcServer)                                 // Não entendi para que serve
+	reflection.Register(grpcServer)
 
 	listen, err := net.Listen("tcp", ":50051")
 	if err != nil {
