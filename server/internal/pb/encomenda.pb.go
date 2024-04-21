@@ -20,6 +20,13 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// A palavra chave message é usada para definir a estrutura de dados que será transmitida,
+// Se você observar, a estrutura é composta por: "tipo nome = numero_order"
+// O número é usado pelo protobuf internamente, e deve ser atribuido a partir do 1, seguindo algumas regras, entre elas:
+// O valor deve ser único
+// Não altere os valores enquanto estiver usando a message
+// Prefira usar valores entre 1 e 15, dessa forma irá economizar memória
+// Você pode consultar todos os campos, assim como os rótulos dos campos na documentação: https://protobuf.dev/programming-guides/proto2
 type User struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
